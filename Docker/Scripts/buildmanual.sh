@@ -1,3 +1,6 @@
+#for this one needs to update the path in the sh file everytime there are changes in number of files.
+
+
 #!/bin/bash
 
 files=(
