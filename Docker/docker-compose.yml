@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  app:
+    image: <image> #can be image url from ecr.
+    build:
+      context: .  
+    container_name: <container_name>
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+          reservations:
+            cpus: '0.25' 
+            memory: 256M 
+    ports: 
+      - 8091:8091 
+    environment: 
+      - couchDB=couchbase
+      - username=Administrator
+      - password=admin123  #variables
+    networks:
+    - dscnet
+networks: 
+ dscnet:
+  external: true
+  driver: overlay
+  name: test-net
