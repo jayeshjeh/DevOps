@@ -9,7 +9,7 @@ response = table.put_item(
 Item = { 
      'Name': 'Mark Wilbur',
      'Email': 'markwilbur@dataengineer.cloud',
-	 'Department': 'IT'
-       }
+	'Department': 'IT'
+     }
 )
 print(response)
