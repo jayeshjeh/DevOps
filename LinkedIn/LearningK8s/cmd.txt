@@ -1,0 +1,1 @@
+kubectl get pods -n <namespace> -o wide // to know the ip of container
