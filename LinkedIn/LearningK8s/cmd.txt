@@ -1,2 +1,5 @@
 kubectl get pods -n <namespace> -o wide // to know the ip of container
 kubectl exec -it <pod_name> -- /bin/sh // to enter into the container
+
+
+## snyk iac test for security concerns 
