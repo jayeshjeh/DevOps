@@ -1,1 +1,19 @@
-docker run --name data-prepper -v ${PWD}/log_pipeline.yaml:/usr/share/data-prepper/pipelines/log_pipeline.yaml --network "test-net" -p 2021:2021 opensearchproject/data-prepper
+# docker run --name data-prepper -v ${PWD}/log_pipeline.yaml:/usr/share/data-prepper/pipelines/log_pipeline.yaml --network "test-net" -p 2021:2021 opensearchproject/data-prepper
+version: '3.7'
+services:
+  data-prepper:
+    image: opensearchproject/data-prepper:2.0.0
+    container_name: data-prepper
+    volumes:
+      - ./log_pipeline.yaml:/usr/share/data-prepper/pipelines/log_pipeline.yaml
+    ports:
+      - 2021:2021
+    networks:
+      - test-net
+    depends_on:
+      - opensearch-node1
+      - opensearch-node2
+
+networks:
+  test-net:
+    external: true
