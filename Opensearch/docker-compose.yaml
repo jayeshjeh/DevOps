@@ -7,7 +7,7 @@ services:
       - ./fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
       - ./test.log:/var/log/test.log
     networks:
-      - dscnet
+      - test-net
   opensearch:
     container_name: opensearch
     image: opensearchproject/opensearch:latest
@@ -27,7 +27,7 @@ services:
       - 9200:9200
       - 9600:9600 # required for Performance Analyzer
     networks:
-      - dscnet
+      - test-net
   dashboards:
     image: opensearchproject/opensearch-dashboards:latest
     container_name: opensearch-dashboards
@@ -36,14 +36,12 @@ services:
     expose:
       - "5601"
     environment:
-      OPENSEARCH_HOSTS: '["https://localhost:9200"]'
+      OPENSEARCH_HOSTS: '["https://opensearch:9200"]'
     depends_on:
       - opensearch
     networks:
-      - dscnet
+      - test-net
 
 networks:
-  dscnet:
-         external: true
-         driver: overlay
-         name: test-net
+  test-net:
+    driver: bridge

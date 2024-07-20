@@ -8,8 +8,8 @@ log-pipeline:
           log: [ "%{COMMONAPACHELOG}" ]
   sink:
     - opensearch:
-        hosts: ["https://10.177.164.51:9200"]
+        hosts: [ "https://opensearch:9200" ]
         insecure: true
         username: admin
         password: Developer@123
-        index: test_logs
+        index: apache_logs
