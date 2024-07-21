@@ -1,2 +1,2 @@
-> Outout redirection (truncate)
->> Output redirection (append)
+''' > ''' Outout redirection (truncate)
+''' >> ''' Output redirection (append)
