@@ -1,7 +1,7 @@
-version: ‘3.7’
+version: '3.7'
 services:
   data-prepper:
-    image: opensearchproject/data-prepper
+    image: opensearchproject/data-prepper:2
     container_name: data-prepper
     volumes:
       - ./log_pipeline.yaml:/usr/share/data-prepper/pipelines/log_pipeline.yaml
